@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-medicalnext-dev-182258-authRole",
+      "UnauthRoleArn": "arn:aws:iam::642956558393:role/amplify-medicalnext-dev-182258-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::642956558393:role/amplify-medicalnext-dev-182258-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-medicalnext-dev-182258-deployment",
+      "UnauthRoleName": "amplify-medicalnext-dev-182258-unauthRole",
+      "StackName": "amplify-medicalnext-dev-182258",
+      "StackId": "arn:aws:cloudformation:us-east-1:642956558393:stack/amplify-medicalnext-dev-182258/9b7dfa90-bd0a-11ec-8b32-0a86b8f848fd",
+      "AmplifyAppId": "d141tqonbcra4u"
+    },
+    "categories": {
+      "auth": {
+        "medicalnextc8c7cf6e": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "medicalnext",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\wzsam\\WebstormProjects\\medical-next\\amplify\\backend\\api\\medicalnext\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-04-15T23:17:25.543Z",
+      "keyDescription": ""
+    }
+  }
+}

@@ -1,0 +1,23 @@
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } }
+
+type Patient @model {
+  id: ID!
+  userID: ID! @index(name: "byUserID", queryField: "patientByUserID")
+  firstname: String
+  middlename: String
+  lastname: String
+  dob: AWSDate
+  phone: String
+  email: String
+  appointments: [Appointment] @hasMany
+}
+
+type Appointment @model {
+  id: ID!
+  patientID: ID!
+  time: AWSTime!
+  date: AWSDate!
+  doctor: String!
+  confirmed: Boolean!
+  patient: Patient @belongsTo
+}
