@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import SignIn from "./SignIn";
 import React, {useState} from "react";
-import Card from "../atoms/Card";
-import {H2, H3} from "../atoms/Typography";
+import {H2} from "../atoms/Typography";
 import Form from "../atoms/Form";
 import SignUp from "./SignUp";
 import ConfirmSignUp from "./ConfirmSignUp";
 import ForgotPassword from "./ForgotPassword";
 import {confirmSignUp, forgotPassword, forgotPasswordSubmit, signIn, signUp} from './auth';
 import ForgotPasswordSubmit from './ForgotPasswordSubmit';
+import {useRouter} from 'next/router';
 
 const AuthNav = styled.div`
   font-weight: 600;
@@ -42,18 +42,21 @@ const styles = {
 }
 
 const initialFormState = {
-  username: '', password: '', email: '', confirmationCode: ''
+  username: '', password: '', confirmationCode: ''
 }
 
-const AuthForm = () => {
+const AuthForm = ({route}) => {
   const [formType, setFormType] = useState('signIn')
   const [formState, updateFormState] = useState(initialFormState)
   const [error, setError] = useState(null)
   const [message, setMessage] = useState(null)
+  const router = useRouter()
 
   const updateFormType = newFormType => {
     setError(null)
+    setMessage(null)
     setFormType(newFormType)
+    //console.log(formState)
   }
 
   function updateForm(event) {
@@ -65,7 +68,11 @@ const AuthForm = () => {
 
   const handleSubmit = (callback, event) => {
     event.preventDefault()
-    callback()
+    try {
+      callback()
+    } catch(err) {
+      setError(err.message)
+    }
   }
 
   function renderForm() {
@@ -74,10 +81,11 @@ const AuthForm = () => {
         return (
           <Form
             method='POST'
-            onSubmit={e => handleSubmit(() => signUp(formState, updateFormType), e)}
+            onSubmit={e => handleSubmit(() => signUp(formState, setMessage, setError, updateFormType), e)}
           >
-            <H2 textAlign='center'>Sign Up</H2>
+            <H2 style={{textAlign:'center'}}>Sign Up</H2>
             <SignUp
+              formState={formState}
               updateFormState={e => updateForm(e)}
             />
           </Form>
@@ -86,11 +94,12 @@ const AuthForm = () => {
         return (
           <Form
             method='POST'
-            onSubmit={e => handleSubmit(() => confirmSignUp(formState, updateFormType), e)}
+            onSubmit={e => handleSubmit(() => confirmSignUp(formState, setMessage, setError, updateFormType), e)}
           >
-            <H2 textAlign='center'>Confirm Sign Up</H2>
+            <H2 style={{textAlign:'center'}}>Confirm Sign Up</H2>
             <ConfirmSignUp
               updateFormState={e => updateForm(e)}
+              formState={formState}
             />
           </Form>
         )
@@ -98,11 +107,12 @@ const AuthForm = () => {
         return (
           <Form
             method='POST'
-            signIn={() => signIn(formState)}
+            onSubmit={e => handleSubmit(() => signIn(formState, setMessage,  setError, () => router.push(route)), e)}
           >
-            <H2 textAlign='center'>Sign In</H2>
+            <H2 style={{textAlign:'center'}}>Sign In</H2>
             <SignIn
               updateFormState={e => updateForm(e)}
+              formState={formState}
               disabled={!(formState.username && formState.password)}
             />
           </Form>
@@ -111,9 +121,9 @@ const AuthForm = () => {
         return (
           <Form
             method='POST'
-            onSubmit={e => handleSubmit(() => forgotPassword(formState, updateFormType), e)}
+            onSubmit={e => handleSubmit(() => forgotPassword(formState, setMessage, setError, updateFormType), e)}
           >
-            <H2 textAlign='center'>Password Recovery</H2>
+            <H2 style={{textAlign:'center'}}>Password Recovery</H2>
             <ForgotPassword
               updateFormState={e => updateForm(e)}
             />
@@ -123,9 +133,9 @@ const AuthForm = () => {
         return (
           <Form
             method='POST'
-            onSubmit={e => handleSubmit(() => forgotPasswordSubmit(formState, updateFormType), e)}
+            onSubmit={e => handleSubmit(() => forgotPasswordSubmit(formState, setMessage, setError, updateFormType), e)}
           >
-            <H2 textAlign='center'>Password Recovery Submit</H2>
+            <H2 style={{textAlign:'center'}}>Password Recovery Submit</H2>
             <ForgotPasswordSubmit
               updateFormState={e => updateForm(e)}
             />
@@ -138,7 +148,6 @@ const AuthForm = () => {
 
   return (
     <>
-      <Card maxWidth='800px'>
         {renderForm()}
         { formType === 'signUp' &&
           <AuthNav>
@@ -183,11 +192,12 @@ const AuthForm = () => {
         }
         { message &&
           <>
-            <H3 textAlign='center'>{message}</H3>
+            <p style={{textAlign: 'center', color: 'white', fontWeight: 700, backgroundColor: 'darkgreen', padding: '1em'}}>
+              {message}
+            </p>
             {/*<FadeSpinner/>*/}
           </>
         }
-      </Card>
     </>
   )
 }

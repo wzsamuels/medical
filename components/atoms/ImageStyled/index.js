@@ -1,20 +1,19 @@
 import styled from 'styled-components';
-import Image from 'next/image'
-
-const ImageStyled = styled(Image)`
-  border-radius: 6px;
-  display: inline-block;
-  box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
-  background-color: ${props => props.theme.colors.cardBackground};
-`
 
 const ImageWrapper = styled.div`
-  position: relative;
-  width: 95%;
+  width: calc(100% - 1em);
   max-width: 800px;
-  margin: 1em auto;
+  margin: 0;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > span {
+    box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+    border-radius: 6px;
+  }
 `
 
-export {ImageWrapper}
-
-export default ImageStyled
+export default ImageWrapper

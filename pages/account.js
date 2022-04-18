@@ -1,4 +1,4 @@
-import {H1, H2, H3} from '../components/atoms/Typography';
+import {H1, H2} from '../components/atoms/Typography';
 import protectedRoute from '../lib/protectedRoute';
 import Card from '../components/atoms/Card';
 import {useEffect, useState} from 'react';
@@ -21,6 +21,7 @@ const Account = ({user}) => {
   useEffect(() => {
     // Fetch customer data based on logged in user ID
     const fetchPatient = async() => {
+      console.log(user)
       const response = await API.graphql(graphqlOperation(`query patientByUserID {
           patientByUserID(userID: "${user.attributes.sub}") {
             items {          
@@ -53,6 +54,8 @@ const Account = ({user}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(formState)
+    console.log(patient)
     let newMessage
     try {
       await API.graphql(graphqlOperation(updatePatient, {input :
@@ -68,7 +71,7 @@ const Account = ({user}) => {
   return (
     <>
       <H1>Personal Information</H1>
-      <H2>Keep your details up to date to save time and paperwork and your next appointment.</H2>
+      <H2 style={{textAlign: 'center'}}>Keep your details up to date to save time and paperwork and your next appointment.</H2>
       <Card>
         <Form onSubmit={e => handleSubmit(e)} >
           {
@@ -94,4 +97,4 @@ const Account = ({user}) => {
   )
 }
 
-export default protectedRoute(Account)
+ export default protectedRoute(Account)

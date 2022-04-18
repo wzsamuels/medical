@@ -2,21 +2,23 @@ import React from 'react'
 import Button from '../atoms/Button'
 import InputLabelContainer from '../atoms/InputLabelContainer';
 import GroupContainer from '../atoms/GroupContainer';
+import Label from '../atoms/Label';
+import Input from '../atoms/Input';
 
 function ForgotPasswordSubmit({updateFormState}) {
   return (
     <>
       <InputLabelContainer>
-        <label>Confirmation Code:</label>
-        <input
+        <Label>Confirmation Code:</Label>
+        <Input
           name='confirmationCode'
           placeholder='Confirmation code'
           onChange={e => { updateFormState(e)} }
         />
       </InputLabelContainer>
       <InputLabelContainer>
-        <label>Password:</label>
-        <input
+        <Label>Password:</Label>
+        <Input
           name='password'
           placeholder='New password'
           type='password'

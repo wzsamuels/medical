@@ -5,6 +5,11 @@ const nextConfig = {
   images: {
     domains: ['images.pexels.com'],
   },
+  experimental: {
+    images: {
+      layoutRaw: true,
+    },
+  },
   compiler: {
     styledComponents: true,
     /*

@@ -5,7 +5,13 @@ const FlexColumn = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   
-  &.center { align-items: center;}
+  &.center { align-items: center; align-content: center}
+  
+  &.margin {
+    & > * {
+      margin: 1em;
+    }
+  }
 `
 
 export default FlexColumn

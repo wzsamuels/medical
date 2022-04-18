@@ -1,4 +1,4 @@
-import {H1, H2, H3} from '../components/atoms/Typography';
+import {H1, H3} from '../components/atoms/Typography';
 import Form from '../components/atoms/Form';
 import Flex from '../components/atoms/Flex';
 import Card from '../components/atoms/Card';
@@ -24,7 +24,7 @@ const scheduleFormInputs = [
   }
 ]
 
-const Schedule = ({user}) => {
+const Schedule = () => {
   const [formState, setFormState] = useState(emptyForm)
   const [patientType, setPatientType] = useState()
 
@@ -38,25 +38,25 @@ const Schedule = ({user}) => {
       <H1>Schedule an Appointment</H1>
       <Card>
         <Form onSubmit={handleSubmit}>
-        <Flex flexDirection='row' justifyContent='center'>
-          <label>
-            <input
-              type='radio'
-              name='patientType'
-              value='newPatient'
-              onChange={onPatientTypeChange}
-            />
+        <Flex className='center'>
+          <Input
+            type='radio'
+            name='patientType'
+            value='newPatient'
+            onChange={onPatientTypeChange}
+          />
+          <Label style={{margin: '0 2em 0 .5em' }}>
             New Patient
-          </label>
-          <label style={{marginLeft: '1em'}}>
-            <input
-              type='radio'
-              name='patientType'
-              value='oldPatient'
-              onChange={onPatientTypeChange}
-            />
+          </Label>
+          <Input
+            type='radio'
+            name='patientType'
+            value='oldPatient'
+            onChange={onPatientTypeChange}
+          />
+          <Label style={{marginLeft: '.5em'}}>
             Returning Patient
-          </label>
+          </Label>
         </Flex>
         {
           patientType === 'oldPatient' &&
@@ -68,8 +68,8 @@ const Schedule = ({user}) => {
         {
           scheduleFormInputs.map(input =>
             <InputLabelContainer key={input.key}>
-              <label>{input.label}</label>
-              <input
+              <Label>{input.label}</Label>
+              <Input
                 name={input.key}
                 type={input.type}
                 onChange={e => handleFormUpdate(e, formState, setFormState)}

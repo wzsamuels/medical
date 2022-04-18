@@ -4,12 +4,14 @@ import {useState} from 'react';
 import Flex from '../components/atoms/Flex';
 import Card from '../components/atoms/Card';
 import {H1} from '../components/atoms/Typography';
-import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';
+import ImageWrapper from '../components/atoms/ImageStyled';
 import {Icon} from '@iconify/react';
 import Image from 'next/image'
 import FlexColumn from '../components/atoms/FlexColumn';
 import logo from '../public/assets/images/medical_logo.svg'
-import photo1 from '../public/assets/images/pexels-photo-5215017.jpeg'
+import photo1 from '../public/assets/images/doctor1.jpeg'
+import photo2 from '../public/assets/images/doctor2.jpeg'
+import photo3 from '../public/assets/images/doctor3.jpeg'
 
 const ChatBotWrapper = styled.div`
   // Don't show on mobile
@@ -48,6 +50,20 @@ const HomeCard = styled(Card)`
   }
 `
 
+const HomeImageWrapper = styled(Flex)`
+  
+  ${ImageWrapper} {
+ //   margin: 0 0 .5em 0;
+    margin: 0;
+    max-width: 600px;
+    width: inherit;
+    @media screen and (min-width: 700px) {
+      width: calc(50% - 1em);
+      margin: .5em;
+    }
+  }
+`
+
 export default function Home() {
   const [botOpen, setBotOpen] = useState(true)
 
@@ -69,33 +85,27 @@ export default function Home() {
 
   return (
     <>
-      <FlexColumn className='center'>
+      <FlexColumn className='center margin'>
         <HomeCard>
           <Flex>
             <Image width='80' height='80' src={logo} alt='Nightwell Logo'/>
             <Flex style={{flex: 1, justifyContent:'center'}}>
-              <H1 style={{margin: '0 0 0 .25em' }}>Nightwell Medical Center</H1>
+              <H1 style={{margin: '0 0 0 .25em', textAlign: 'center'}}>Nightwell Medical Center</H1>
               <p style={{textAlign:'center'}}>801 E 2nd Ave, Anchorage, AK 99501</p>
             </Flex>
           </Flex>
         </HomeCard>
-        <ImageWrapper>
-          <ImageStyled src={photo1}/>
-        </ImageWrapper>
-        {/*
-        <ImageWrapper>
-          <ImageStyled layout='fill' src='https://images.pexels.com/photos/5215013/pexels-photo-5215013.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=1500'/>
-        </ImageWrapper>
-        <ImageWrapper>
-          <ImageStyled layout='fill' src='https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=1500'/>
-        </ImageWrapper>
-        <ImageWrapper>
-          <ImageStyled layout='fill' src='https://images.pexels.com/photos/3259629/pexels-photo-3259629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=1500'/>
-        </ImageWrapper>
-        <ImageWrapper>
-          <ImageStyled layout='fill' src='https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1000&w=1500'/>
-        </ImageWrapper>
-        */}
+        <HomeImageWrapper className='center'>
+          <ImageWrapper>
+            <Image src={photo1}/>
+          </ImageWrapper>
+          <ImageWrapper>
+            <Image src={photo2}/>
+          </ImageWrapper>
+          <ImageWrapper>
+            <Image src={photo3}/>
+          </ImageWrapper>
+        </HomeImageWrapper>
       </FlexColumn>
 
     </>

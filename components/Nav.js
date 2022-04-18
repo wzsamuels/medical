@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const iconHeight = '32'
 
-const Nav = ({user, onSignIn, setOpenNav}) => {
+const Nav = ({user, setOpenNav}) => {
   const [openBar, setOpenBar] = useState(false)
   const toggleBar = () => setOpenBar(!openBar)
 
@@ -57,10 +57,12 @@ const Nav = ({user, onSignIn, setOpenNav}) => {
         </Link>
       }
 
-      <IconTab exact to='/about'>
-        <Icon height={iconHeight} icon="ic:baseline-help" />
-        <div className='label'>About Us</div>
-      </IconTab>
+      <Link href='/about' passHref>
+        <IconTab>
+          <Icon height={iconHeight} icon="ic:baseline-help" />
+          <div className='label'>About Us</div>
+        </IconTab>
+      </Link>
     </ToolBar>
   )
 }

@@ -1,0 +1,27 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "medicalnextc8c7cf6e",
+  "functionName": "medicalnextc8c7cf6ePostConfirmation",
+  "resourceName": "medicalnextc8c7cf6ePostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "C:\\snapshot\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "medicalnextc8c7cf6ePostConfirmation",
+  "skipEdit": true,
+  "enableCors": false,
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "apiNewmedicalEndpoint",
+      "environmentVariableName": "API_NEWMEDICAL_ENDPOINT"
+    },
+    {
+      "cloudFormationParameterName": "apiNewmedicalKey",
+      "environmentVariableName": "API_NEWMEDICAL_KEY"
+    }
+  ]
+}

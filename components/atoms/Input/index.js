@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 const Input = styled.input`
-  &input:not([type='checkbox']) {
+  &:not([type='radio'], [type='check']) {
     padding: .5em;
     max-width: 100%;
     width: 100%;
+    box-shadow: 0 1px 3px 0 rgba(25, 25, 35, 0.5);
+
   }
 
   background-color: transparent;
@@ -12,7 +14,7 @@ const Input = styled.input`
   border-width: 1px;
   border-style: solid;
   border-radius: 2px;
-  box-shadow: 0 5px 15px 0 #0B0B19;
+
   color: ${props => props.theme.colors.text};
 
   &:focus {

@@ -7,8 +7,8 @@ const Card = styled.div`
   overflow-wrap: break-word;
   
   padding: 1em;
-  margin: 1em 1em;
-  width: 95%;
+ // margin: 1em 1em;
+  width: calc(100% - 1em);
   max-width: 600px;
   border-radius: 6px;
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);

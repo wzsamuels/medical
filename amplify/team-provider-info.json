@@ -9,11 +9,20 @@
       "UnauthRoleName": "amplify-medicalnext-dev-182258-unauthRole",
       "StackName": "amplify-medicalnext-dev-182258",
       "StackId": "arn:aws:cloudformation:us-east-1:642956558393:stack/amplify-medicalnext-dev-182258/9b7dfa90-bd0a-11ec-8b32-0a86b8f848fd",
-      "AmplifyAppId": "d141tqonbcra4u"
+      "AmplifyAppId": "d141tqonbcra4u",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-medicalnext-dev-182258-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
         "medicalnextc8c7cf6e": {}
+      },
+      "function": {
+        "medicalnextc8c7cf6ePostConfirmation": {
+          "deploymentBucketName": "amplify-medicalnext-dev-182258-deployment",
+          "s3Key": "amplify-builds/medicalnextc8c7cf6ePostConfirmation-4f74446d782f597a4672-build.zip",
+          "apiNewmedicalEndpoint": "https://dyv6jjyahjdcbjt2vnyxz3wrgm.appsync-api.us-east-1.amazonaws.com/graphql",
+          "apiNewmedicalKey": "da2-re7k3sluabcunk36vet5y7kc5m"
+        }
       }
     }
   }

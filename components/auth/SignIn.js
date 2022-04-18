@@ -2,24 +2,27 @@ import Button from '../atoms/Button';
 import InputLabelContainer from '../atoms/InputLabelContainer';
 import GroupContainer from '../atoms/GroupContainer';
 import React from 'react';
+import Label from '../atoms/Label';
+import Input from '../atoms/Input';
 
-function SignIn({ updateFormState }) {
+function SignIn({disabled, formState, updateFormState }) {
   return (
     <>
       <InputLabelContainer>
-        <label>Email:</label>
-        <input
+        <Label>Email:</Label>
+        <Input
           type="text"
           name="username"
           onChange={e => {
             updateFormState(e);
           }}
+          value={formState.username}
           placeholder='email'
         />
       </InputLabelContainer>
       <InputLabelContainer>
-        <label>Password:</label>
-        <input
+        <Label>Password:</Label>
+        <Input
           type="password"
           name="password"
           onChange={e => {
@@ -29,7 +32,7 @@ function SignIn({ updateFormState }) {
         />
       </InputLabelContainer>
       <GroupContainer>
-        <Button type="submit">Sign In</Button>
+        <Button disabled={disabled} type="submit">Sign In</Button>
       </GroupContainer>
     </>
   );

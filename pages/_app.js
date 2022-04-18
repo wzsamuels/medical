@@ -3,7 +3,7 @@ import theme from '../styles/theme';
 import GlobalStyles from '../styles/GlobalStyles';
 import {ThemeProvider} from 'styled-components';
 import PageContainer from '../components/atoms/PageContainer';
-import {Amplify} from 'aws-amplify';
+import {Amplify, Auth, Hub} from 'aws-amplify';
 import awsconfig from '../src/aws-exports'
 import {useEffect, useState} from 'react';
 import CookiePopup from '../components/organisms/CookiePopup';
@@ -12,6 +12,8 @@ import Script from 'next/script';
 import Head from 'next/head';
 import Nav from '../components/Nav';
 import HomeContainer from '../components/HomeContainer';
+import dynamic from 'next/dynamic';
+import useWindowDimensions from '../lib/useWindowDimensions';
 
 Amplify.configure({...awsconfig, ssr: true});
 
@@ -22,24 +24,44 @@ const startAnalytics = () => {
   gtag('config', 'UA-217800713-1');
 }
 
-function MyApp({ Component, pageProps }) {
-  //const { height, width } = useWindowDimensions();
+function App({ Component, pageProps }) {
+  const { width } = useWindowDimensions();
   const [openNav, setOpenNav] = useState(false)
   const [cookies, setCookie] = useCookies(["ccm_accepted", "cookie_settings"])
   const [cookiePopup, setCookiePopup] = useState(() => {
     console.log(`Show popup: ${cookies.ccm_accepted !== "true"}`)
-    return cookies.ccm_accepted !== "true";
-    //return false;
+ //   return cookies.ccm_accepted !== "true";
+    return false;
   })
-  //const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const [user, setUser] = useState(null);
 
-  //const pad = (width < 600 && openNav) || width >= 600 ? '120px' : '60px'
-/*
   useEffect(() => {
-    console.log(cookiePopup)
-  },[cookiePopup])
+    Hub.listen('auth', ({ payload: { event, data } }) => {
+      switch (event) {
+        case 'signIn':
+        case 'cognitoHostedUI':
+          getUser().then(userData => setUser(userData));
+          break;
+        case 'signOut':
+          setUser(null);
+          break;
+        case 'signIn_failure':
+        case 'cognitoHostedUI_failure':
+          console.log('Sign in failure', data);
+          break;
+        default:
+          console.log(`Unexpected Hub event: ${JSON.stringify(event)}`)
+      }
+    });
 
- */
+    getUser().then(userData => setUser(userData));
+  }, []);
+
+  function getUser() {
+    return Auth.currentAuthenticatedUser()
+      .then(userData => userData)
+      .catch(() => console.log('Not signed in'));
+  }
 
   useEffect(() => {
     if(!cookiePopup) {
@@ -84,9 +106,9 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <GlobalStyles/>
         <PageContainer>
-          <HomeContainer>
-            <Nav setOpenNav={setOpenNav} />
-            <Component {...pageProps} />
+          <HomeContainer style={{paddingLeft: (width < 600 && openNav) || width >= 600 ? '120px' : '60px'}}>
+            <Nav user={user} setOpenNav={setOpenNav} />
+            <Component user={user} {...pageProps} />
           </HomeContainer>
         </PageContainer>
         { cookiePopup &&
@@ -99,4 +121,11 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+/*
+export default dynamic(() => Promise.resolve(App), {
+  ssr: false,
+})
+
+ */
+
+export default App
