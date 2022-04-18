@@ -24,5 +24,12 @@ export type AmplifyDependentResourcesAttributes = {
             "LambdaExecutionRole": "string",
             "Region": "string"
         }
+    },
+    "interactions": {
+        "lexMedical": {
+            "Region": "string",
+            "BotName": "string",
+            "FunctionArn": "string"
+        }
     }
 }

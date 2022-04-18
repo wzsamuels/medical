@@ -14,7 +14,8 @@
     },
     "categories": {
       "auth": {
-        "medicalnextc8c7cf6e": {}
+        "medicalnextc8c7cf6e": {},
+        "true": {}
       },
       "function": {
         "medicalnextc8c7cf6ePostConfirmation": {
@@ -22,6 +23,12 @@
           "s3Key": "amplify-builds/medicalnextc8c7cf6ePostConfirmation-4f74446d782f597a4672-build.zip",
           "apiNewmedicalEndpoint": "https://dyv6jjyahjdcbjt2vnyxz3wrgm.appsync-api.us-east-1.amazonaws.com/graphql",
           "apiNewmedicalKey": "da2-re7k3sluabcunk36vet5y7kc5m"
+        }
+      },
+      "interactions": {
+        "lexMedical": {
+          "deploymentBucketName": "amplify-medicalnext-dev-182258-deployment",
+          "s3Key": "amplify-builds/lexMedical-7264776b2f44426f5144-build.zip"
         }
       }
     }

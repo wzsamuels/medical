@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "medicalnextc8c7cf6e_identitypool_c8c7cf6e",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "medicac8c7cf6e",
     "userPoolName": "medicalnextc8c7cf6e_userpool_c8c7cf6e",
     "autoVerifiedAttributes": [
@@ -82,6 +82,8 @@
       "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"medicalnextc8c7cf6ePostConfirmation\"\n  }\n]"
+    "authTriggerConnections": [
+      "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"medicalnextc8c7cf6ePostConfirmation\"}"
+    ]
   }
 }
