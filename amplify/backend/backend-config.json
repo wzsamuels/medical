@@ -69,5 +69,6 @@
       "providerPlugin": "awscloudformation",
       "build": true
     }
-  }
+  },
+  "hosting": {}
 }

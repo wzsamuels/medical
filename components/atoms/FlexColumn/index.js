@@ -8,6 +8,7 @@ const FlexColumn = styled.div`
   &.center { align-items: center; align-content: center}
   
   &.margin {
+    padding: 0 .5em;
     & > * {
       margin: 1em;
     }

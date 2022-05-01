@@ -7,7 +7,7 @@ const ToolBarStyled = styled.div`
   
   position: fixed;
   display: flex;
-  box-shadow: 0 10px 20px -12px rgb(0 0 0 / 42%), 0 3px 20px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+  box-shadow: 19px -3px 20px -12px rgb(4 3 3 / 42%), 0 3px 20px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
 `
 
 const TopBar = styled(ToolBarStyled)`

@@ -57,6 +57,8 @@ const theme = {
     message: darkAccent,
     select: lightAccent,
 
+    lightAccent: lightAccent,
+    darkAccent: darkAccent,
   },
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontHeader: '\'Playfair Display\', serif;',
