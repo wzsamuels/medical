@@ -5,6 +5,7 @@ import Button from './atoms/Button';
 import Input from './atoms/Input';
 import FlexColumn from './atoms/FlexColumn';
 import {H1, H2} from './atoms/Typography';
+import { Icon } from '@iconify/react';
 import {
   PostTextCommand
 } from "@aws-sdk/client-lex-runtime-service";
@@ -88,9 +89,22 @@ const ChatBotHeader = styled(Flex)`
 const ChatBotFooter = styled(Flex)`
   border-radius: 0 0 1em 1em;
   height: 100%;
+  width: 100%;
   background-color: white;
-  justify-content: space-between;
+
+  ${Icon} {
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
   input {
+
     padding: .5em;
     border: none;
   }
@@ -126,6 +140,11 @@ const ChatBot = ({welcomeMessage = "Hello"}) => {
 
   const handleSubmit = async e => {
     e.preventDefault()
+
+    if (!(message || message.trim().length > 0)) {
+      return;
+    }
+
     dispatch({type: 'message', payload: message})
 
     const lexparams = {
@@ -175,7 +194,7 @@ const ChatBot = ({welcomeMessage = "Hello"}) => {
              placeholder="Write a message"
              ref={inputRef}
            />
-            <Button type='submit'>Submit</Button>
+           <Icon icon="bi:send-fill" style={{fontSize: '1.5em', marginRight: '1em'}} onClick={e => handleSubmit(e)}/>
          </form>
        </ChatBotFooter>
      </ChatbotWrapper>

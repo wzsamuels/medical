@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const H1 = styled.h1`
   font-size: 2em;
   font-weight: 300;
+  color: inherit;
   
   @media screen and (min-width: 750px) {
     font-size: 2.25em;
@@ -24,6 +25,7 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-size: 1.25em;
   font-weight: normal;
+  
   @media screen and (min-width: 750px) {
     font-size: 1.5em;
   }

@@ -12,12 +12,15 @@
     "@aws-amplify/ui-react": "^2.15.3",
     "@aws-sdk/client-lex-runtime-v2": "^3.81.0",
     "@iconify/react": "^3.2.1",
+    "@stripe/react-stripe-js": "^1.9.0",
+    "@stripe/stripe-js": "^1.32.0",
     "aws-amplify": "^4.3.20",
     "aws-sdk": "^2.1125.0",
-    "next": "12.1.5",
+    "next": "^12.1.5",
     "react": "18.0.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.0.0",
+    "stripe": "^9.11.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

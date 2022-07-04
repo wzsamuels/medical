@@ -16,25 +16,25 @@ const About = () => {
       <H2>Meet Our Incredible Medical Team!</H2>
       <Flex className='center'>
         <DoctorWrapper className='center'>
-          <H3>Dr. Stanely Stamp</H3>
+          <H3>Dr. Esmé Jeanette</H3>
           <ImageWrapper>
             <Image src={photo1}/>
           </ImageWrapper>
         </DoctorWrapper>
         <DoctorWrapper className='center'>
-          <H3>Dr. Stanely Stamp</H3>
+          <H3>Dr. Harold Cavan</H3>
           <ImageWrapper>
             <Image src={photo2}/>
           </ImageWrapper>
         </DoctorWrapper>
         <DoctorWrapper className='center'>
-          <H3>Dr. Stanely Stamp</H3>
+          <H3>Dr. Celia Morrison</H3>
           <ImageWrapper>
             <Image src={photo3}/>
           </ImageWrapper>
         </DoctorWrapper>
         <DoctorWrapper className='center'>
-          <H3>Dr. Stanely Stamp</H3>
+          <H3>Dr. Sara Gill</H3>
           <ImageWrapper>
             <Image src={photo4}/>
           </ImageWrapper>

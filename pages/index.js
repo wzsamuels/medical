@@ -21,6 +21,7 @@ const ChatBotWrapper = styled.div`
   right: 5px;
   transition: height 0.5s linear;
   max-width: 75vw;
+  width: 400px;
   max-height: 500px;
   height: 500px;
   &.closed {
@@ -43,6 +44,8 @@ const HomeCard = styled(Card)`
     justify-content: center; 
     align-items: center;
   }
+  
+  max-width: 900px;
 `
 
 export default function Home() {
@@ -70,22 +73,26 @@ export default function Home() {
         <HomeCard>
           <Flex>
             <Image width='80' height='80' src={logo} alt='Nightwell Logo'/>
-            <Flex style={{flex: 1, justifyContent:'center'}}>
+            <FlexColumn style={{flex: 1, justifyContent:'center'}}>
               <H1 style={{margin: '0 0 0 .25em', textAlign: 'center'}}>Nightwell Medical Center</H1>
               <p style={{textAlign:'center'}}>801 E 2nd Ave, Anchorage, AK 99501</p>
-            </Flex>
+            </FlexColumn>
           </Flex>
         </HomeCard>
-        <H1>Cutting Edge Medical Technology</H1>
-        <ImageWrapper>
-          <Image src={science}/>
-        </ImageWrapper>
-        <H1>In a Welcoming Environment</H1>
-        <ImageWrapper>
-          <Image src={office}/>
-        </ImageWrapper>
+        <Card style={{maxWidth:'900px', padding: 0}}>
+          <FlexColumn className='center'>
+            <H1>Cutting Edge Medical Technology</H1>
+            <Image src={science}/>
+          </FlexColumn>
+        </Card>
+        <Card style={{maxWidth:'900px', padding: 0}}>
+          <FlexColumn className='center'>
+            <H1>In a Welcoming Environment</H1>
+            <Image src={office}/>
+          </FlexColumn>
+        </Card>
       </FlexColumn>
-      <ChatBotWrapper     className={botOpen ? '' : 'closed'}>
+      <ChatBotWrapper className={botOpen ? '' : 'closed'}>
         <CloseButton onClick={() => setBotOpen(!botOpen)} >
           {botOpen ? <Icon icon="ic:baseline-expand-more" /> : <Icon icon="ic:baseline-expand-less" /> }
         </CloseButton>

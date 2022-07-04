@@ -11,7 +11,7 @@ const Card = styled.div`
   width: calc(100% - 1em);
   max-width: 600px;
   border-radius: 6px;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
   
   &.active {
     cursor: pointer;
