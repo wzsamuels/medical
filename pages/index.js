@@ -1,18 +1,13 @@
 import styled from 'styled-components';
-import {AmplifyChatbot} from '@aws-amplify/ui-react/legacy';
 import {useState} from 'react';
 import Flex from '../components/atoms/Flex';
 import Card from '../components/atoms/Card';
-import {H1, H2, H3} from '../components/atoms/Typography';
-import ImageWrapper from '../components/atoms/ImageStyled';
+import {H1} from '../components/atoms/Typography';
 import {Icon} from '@iconify/react';
 import Image from 'next/image'
 import FlexColumn from '../components/atoms/FlexColumn';
 import logo from '../public/assets/images/medical_logo.svg'
-import office from '../public/assets/images/office.jpg';
-import science from '../public/assets/images/science.jpg'
 import ChatBot from '../components/ChatBot';
-
 
 const ChatBotWrapper = styled.div`
 
@@ -25,7 +20,7 @@ const ChatBotWrapper = styled.div`
   max-height: 500px;
   height: 500px;
   &.closed {
-    height: 3em;
+    height: 2.5em;
   }
 `
 
@@ -49,7 +44,7 @@ const HomeCard = styled(Card)`
 `
 
 export default function Home() {
-  const [botOpen, setBotOpen] = useState(true)
+  const [botOpen, setBotOpen] = useState(false)
 
   const handleComplete = (err, confirmation) => {
     if (err) {
@@ -76,19 +71,20 @@ export default function Home() {
             <FlexColumn style={{flex: 1, justifyContent:'center'}}>
               <H1 style={{margin: '0 0 0 .25em', textAlign: 'center'}}>Nightwell Medical Center</H1>
               <p style={{textAlign:'center'}}>801 E 2nd Ave, Anchorage, AK 99501</p>
+              <p style={{textAlign:'center', margin: 0}}>1-800-GET-WELL</p>
             </FlexColumn>
           </Flex>
         </HomeCard>
         <Card style={{maxWidth:'900px', padding: 0}}>
           <FlexColumn className='center'>
-            <H1>Cutting Edge Medical Technology</H1>
-            <Image src={science}/>
+            <H1 style={{textAlign: "center",  padding: "0 1em"}}>Cutting Edge Medical Technology</H1>
+            <Image width="900px" height="600px" src="https://twinsilver.mo.cloudinary.net/medical/science.jpg?tx=q_auto,f_auto"/>
           </FlexColumn>
         </Card>
         <Card style={{maxWidth:'900px', padding: 0}}>
           <FlexColumn className='center'>
-            <H1>In a Welcoming Environment</H1>
-            <Image src={office}/>
+            <H1 style={{textAlign: "center", padding: "0 1em"}}>In a Welcoming Environment</H1>
+            <Image width="900px" height="600px" src="https://twinsilver.mo.cloudinary.net/medical/office.jpg?tx=q_auto,f_auto"/>
           </FlexColumn>
         </Card>
       </FlexColumn>

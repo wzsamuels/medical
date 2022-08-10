@@ -3,10 +3,6 @@ import ImageWrapper from '../components/atoms/ImageStyled';
 import FlexColumn from '../components/atoms/FlexColumn';
 import Image from 'next/image'
 import Flex from '../components/atoms/Flex';
-import photo1 from '../public/assets/images/doctor1.jpeg';
-import photo2 from '../public/assets/images/doctor2.jpeg';
-import photo3 from '../public/assets/images/doctor3.jpeg';
-import photo4 from '../public/assets/images/doctor5.jpg';
 import styled from 'styled-components';
 
 const About = () => {
@@ -18,25 +14,25 @@ const About = () => {
         <DoctorWrapper className='center'>
           <H3>Dr. Esmé Jeanette</H3>
           <ImageWrapper>
-            <Image src={photo1}/>
+            <Image width="600px" height="900px" src="https://twinsilver.mo.cloudinary.net/medical/doctor1.jpg?tx=q_auto,f_auto"/>
           </ImageWrapper>
         </DoctorWrapper>
         <DoctorWrapper className='center'>
           <H3>Dr. Harold Cavan</H3>
           <ImageWrapper>
-            <Image src={photo2}/>
+            <Image width="600px" height="900px" src="https://twinsilver.mo.cloudinary.net/medical/doctor2.jpg?tx=q_auto,f_auto"/>
           </ImageWrapper>
         </DoctorWrapper>
         <DoctorWrapper className='center'>
           <H3>Dr. Celia Morrison</H3>
           <ImageWrapper>
-            <Image src={photo3}/>
+            <Image width="600px" height="900px" src="https://twinsilver.mo.cloudinary.net/medical/doctor3.jpg?tx=q_auto,f_auto"/>
           </ImageWrapper>
         </DoctorWrapper>
         <DoctorWrapper className='center'>
           <H3>Dr. Sara Gill</H3>
           <ImageWrapper>
-            <Image src={photo4}/>
+            <Image width="600px" height="900px" src="https://twinsilver.mo.cloudinary.net/medical/doctor5.jpg?tx=q_auto,f_auto"/>
           </ImageWrapper>
         </DoctorWrapper>
       </Flex>

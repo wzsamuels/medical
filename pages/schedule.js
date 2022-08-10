@@ -35,7 +35,7 @@ const Schedule = () => {
 
   return (
     <>
-      <H1>Schedule an Appointment</H1>
+      <H1 style={{textAlign: "center",  padding: "0 1em"}}>Schedule an Appointment</H1>
       <Card>
         <Form onSubmit={handleSubmit}>
         <Flex className='center'>
